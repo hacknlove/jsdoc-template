@@ -324,10 +324,9 @@ function buildMemberNav(items, itemHeading, itemsSeen, linktoFn) {
   return nav;
 }
 
-// TODO: as needed, comment back in later
-// function linktoTutorial(longName, name) {
-//   return tutoriallink(name);
-// }
+function linktoTutorial(longName, name) {
+  return tutoriallink(name);
+}
 
 // function linktoExternal(longName, name) {
 //   return linkto(longName, name.replace(/(^"|"$)/g, ''));
@@ -351,7 +350,7 @@ function buildNav(members) {
   var nav = '';
   var globalNav = '';
   var seen = {};
-  // var seenTutorials = {};
+  var seenTutorials = {};
 
   nav += buildMemberNav(members.classes, 'Classes', seen, linkto);
   nav += buildMemberNav(members.modules, 'Modules', {}, linkto);
@@ -360,7 +359,7 @@ function buildNav(members) {
   // nav += buildMemberNav(members.events, 'Events', seen, linkto);
   // nav += buildMemberNav(members.namespaces, 'Namespaces', seen, linkto);
   // nav += buildMemberNav(members.mixins, 'Mixins', seen, linkto);
-  // nav += buildMemberNav(members.tutorials, 'Tutorials', seenTutorials, linktoTutorial);
+  nav += buildMemberNav(members.tutorials, 'Tutorials', seenTutorials, linktoTutorial);
   // nav += buildMemberNav(members.interfaces, 'Interfaces', seen, linkto);
 
   if (members.globals.length) {
